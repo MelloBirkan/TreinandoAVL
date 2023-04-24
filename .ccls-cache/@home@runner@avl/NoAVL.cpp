@@ -8,4 +8,4 @@ NoAVL::NoAVL(int codigo, std::string nomeProduto, int quantidade, float valor) {
     altura = 1;
     esquerda = nullptr;
     direita = nullptr;
-}
+} 
