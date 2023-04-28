@@ -179,72 +179,73 @@ public:
 };
 
 int main() {
-    ArvoreAVL arvore;
-    int opcao;
-    int codigo;
-    std::string nome;
-    int qtde;
-    float valorUnitario;
+  ArvoreAVL arvore;
+  int opcao;
+  int codigo;
+  std::string nome;
+  int qtde;
+  float valorUnitario;
 
-    do {
-        std::cout << "\nMenu de opções:" << std::endl;
-        std::cout << "1 - Ler dados de um produto" << std::endl;
-        std::cout << "2 - Apresentar todos os produtos" << std::endl;
-        std::cout << "3 - Calcular valor em R$ do produto em estoque" << std::endl;
-        std::cout << "4 - Calcular valor total do estoque" << std::endl;
-        std::cout << "5 - Mostrar produtos com quantidade no estoque inferior a um valor" << std::endl;
-        std::cout << "0 - Sair" << std::endl;
-        std::cout << "Digite a opção desejada: ";
-        std::cin >> opcao;
-        std::cin.ignore();
+  do {
+    std::cout << "\nMenu de opções:" << std::endl;
+    std::cout << "1 - Ler dados de um produto" << std::endl;
+    std::cout << "2 - Apresentar todos os produtos" << std::endl;
+    std::cout << "3 - Calcular valor em R$ do produto em estoque" << std::endl;
+    std::cout << "4 - Calcular valor total do estoque" << std::endl;
+    std::cout
+        << "5 - Mostrar produtos com quantidade no estoque inferior a um valor"
+        << std::endl;
+    std::cout << "0 - Sair" << std::endl;
+    std::cout << "Digite a opção desejada: ";
+    std::cin >> opcao;
+    std::cin.ignore();
 
-        switch (opcao) {
-            case 1:
-                std::cout << "Digite o código do produto: ";
-                std::cin >> codigo;
-                std::cin.ignore(); // Ignora o '\n' após o input numérico
+    switch (opcao) {
+    case 1:
+      std::cout << "Digite o código do produto: ";
+      std::cin >> codigo;
+      std::cin.ignore(); // Ignora o '\n' após o input numérico
 
-                std::cout << "Digite o nome do produto: ";
-                std::getline(std::cin, nome);
+      std::cout << "Digite o nome do produto: ";
+      std::getline(std::cin, nome);
 
-                std::cout << "Digite a quantidade do produto: ";
-                std::cin >> qtde;
+      std::cout << "Digite a quantidade do produto: ";
+      std::cin >> qtde;
 
-                std::cout << "Digite o valor unitário do produto: ";
-                std::cin >> valorUnitario;
+      std::cout << "Digite o valor unitário do produto: ";
+      std::cin >> valorUnitario;
 
-                arvore.inserir(codigo, nome, qtde, valorUnitario); // Insere o produto na árvore
-                break;
-            case 2:
-                arvore.apresentarProdutos();
-                break;
-            case 3:
-                {
-                    std::string nomeProduto;
-                    std::cout << "Digite o nome do produto para calcular o valor em estoque: ";
-                    std::getline(std::cin, nomeProduto);
-                    arvore.calcularValorEmEstoque(nomeProduto);
-                }
-                break;
-            case 4:
-                arvore.calcularValorTotalEmEstoque();
-                break;
-            case 5:
-                {
-                    int valor;
-                    std::cout << "Digite um valor para mostrar os produtos com quantidade no estoque inferior a este valor: ";
-                    std::cin >> valor;
-                    arvore.mostrarProdutosInferiores(valor);
-                }
-                break;
-            case 0:
-                std::cout << "Saindo do programa..." << std::endl;
-                break;
-            default:
-                std::cout << "Opção inválida. Tente novamente." << std::endl;
-                break;
-        }
-    } while (opcao != 0);
+      arvore.inserir(codigo, nome, qtde,
+                     valorUnitario); // Insere o produto na árvore
+      break;
+    case 2:
+      arvore.apresentarProdutos();
+      break;
+    case 3: {
+      std::string nomeProduto;
+      std::cout
+          << "Digite o nome do produto para calcular o valor em estoque: ";
+      std::getline(std::cin, nomeProduto);
+      arvore.calcularValorEmEstoque(nomeProduto);
+    } break;
+    case 4:
+      arvore.calcularValorTotalEmEstoque();
+      break;
+    case 5: {
+      int valor;
+      std::cout << "Digite um valor para mostrar os produtos com quantidade no "
+                   "estoque inferior a este valor: ";
+      std::cin >> valor;
+      arvore.mostrarProdutosInferiores(valor);
+    } break;
+    case 0:
+      std::cout << "Saindo do programa..." << std::endl;
+      break;
+    default:
+      std::cout << "Opção inválida. Tente novamente." << std::endl;
+      break;
+    }
+  } while (opcao != 0);
 
-    return 0;
+  return 0;
 }
